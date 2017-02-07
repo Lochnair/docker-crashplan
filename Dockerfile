@@ -20,8 +20,13 @@ apk add \
 	coreutils \
 	cpio \
 	findutils \
-	openjdk8-jre-base \
 	procps
+
+# Install Oracle Server JRE 8
+RUN \
+curl -o "/tmp/java.tar.gz" -fLH "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/server-jre-8u121-linux-x64.tar.gz" && \
+mkdir -p /opt/jre && \
+tar --strip-components=1 -xf /tmp/java.tar.gz -C /opt/jre
 
 # Remove initialization scripts we don't need
 RUN \

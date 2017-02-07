@@ -1,4 +1,4 @@
-FROM lochnair/base:alpine-jre8
+FROM lochnair/base:alpine-glibc
 
 MAINTAINER Lochnair <me@lochnair.net>
 
@@ -20,6 +20,7 @@ apk add \
 	coreutils \
 	cpio \
 	findutils \
+	openjdk8-jre-base \
 	procps
 
 # Remove initialization scripts we don't need

@@ -20,6 +20,7 @@ apk add \
 	coreutils \
 	cpio \
 	findutils \
+	libstdc++ \
 	paxctl \
 	procps
 

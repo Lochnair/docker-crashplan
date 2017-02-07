@@ -55,3 +55,5 @@ mkdir /data
 
 VOLUME /config
 VOLUME /data
+
+COPY root/ /

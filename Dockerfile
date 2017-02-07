@@ -50,6 +50,14 @@ sed -i "s|</servicePeerConfig>|</servicePeerConfig>\n\t<serviceUIConfig>\n\t\t\
 <connectCheck>0</connectCheck>\n\t\t<showFullFilePath>false</showFullFilePath>\n\t\
 </serviceUIConfig>|g" /app/conf/default.service.xml
 
+# Move /app/conf to /config/conf
+RUN \
+mv /app/conf /config/conf
+
+# Symlink /var/lib/crashplan to /config
+RUN \
+ln -sf /config /var/lib/crashplan
+
 RUN \
 mkdir /data
 

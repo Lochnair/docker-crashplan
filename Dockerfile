@@ -36,6 +36,7 @@ RUN \
 tar xf "/tmp/crashplan.tgz" -C /tmp/ && \
 cd /app && \
 zcat "/tmp/crashplan-install/CrashPlan_${CRASHPLAN_VER}.cpi" | cpio -i && \
+cp /tmp/crashplan-install/scripts/run.conf /app/bin/ && \
 rm -rf /tmp/*
 
 # Set correct manifest path
@@ -50,12 +51,13 @@ sed -i "s|</servicePeerConfig>|</servicePeerConfig>\n\t<serviceUIConfig>\n\t\t\
 <connectCheck>0</connectCheck>\n\t\t<showFullFilePath>false</showFullFilePath>\n\t\
 </serviceUIConfig>|g" /app/conf/default.service.xml
 
-# Move /app/conf to /config/conf
+# Move configuration to /config
 RUN \
 mv /app/conf /config/conf
 
-# Symlink /var/lib/crashplan to /config
+# Create configuration symlinks
 RUN \
+ln -sf /config/conf /app/conf && \
 ln -sf /config /var/lib/crashplan
 
 RUN \

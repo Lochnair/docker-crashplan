@@ -1,5 +1,2 @@
 #!/usr/bin/with-contenv bash
-. /app/install.vars
-
-exec \
-	s6-setuidgid cont 
+exec /usr/bin/java $SRV_JAVA_OPTS -classpath $FULL_CP com.backup42.service.CPService

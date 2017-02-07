@@ -8,7 +8,7 @@ EXPOSE 4242 4243
 
 ARG CRASHPLAN_VER="4.8.0"
 
-ENV FULL_CP "/app/lib/com.backup42.desktop.jar:/app/lang"
+ENV FULL_CP "/app/lib/com.backup42.desktop.jar:/app/lang:/app"
 ENV MANIFESTDIR "/app/manifest"
 ENV SRV_JAVA_OPTS "-Dfile.encoding=UTF-8 -Dapp=CrashPlanService -DappBaseName=CrashPlan -Xms20m -Xmx1024m -Dsun.net.inetaddr.ttl=300 -Dnetworkaddress.cache.ttl=300 -Dsun.net.inetaddr.negative.ttl=0 -Dnetworkaddress.cache.negative.ttl=0 -Dc42.native.md5.enabled=false"
 

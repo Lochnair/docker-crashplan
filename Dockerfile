@@ -6,7 +6,7 @@ LABEL Description="Docker image for CrashPlan"
 
 EXPOSE 4242 4243
 
-ARG CRASHPLAN_VER="4.8.0"
+ARG CRASHPLAN_VER="4.8.2"
 
 ENV FULL_CP "/app/lib/com.backup42.desktop.jar:/app/lang:/app"
 ENV MANIFESTDIR "/app/manifest"
